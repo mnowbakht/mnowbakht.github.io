@@ -14,9 +14,10 @@
 
 <nav>
   <div class="inner">
-    <a class="brand" href="#">Mohammad Nowbakht</a>
+    <a class="brand" href="#about">Mohammad Nowbakht</a>
     <a href="#about">About</a>
     <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
     <a href="#publications">Publications</a>
     <a href="#teaching">Teaching</a>
     <a href="#cv">CV</a>
@@ -66,6 +67,29 @@
 
       <h3>Methods</h3>
       <p class="muted">Experiment design and programming in Python · Eye tracking · EEG · SPSS · R · Jamovi</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <h3>Bilingualism and executive function</h3>
+      <p class="small muted">Postdoctoral research project · Neuro-Psycholinguistics Lab, Heinrich Heine University Düsseldorf · 2024 – present</p>
+      <p>Does it matter for the mind whether two languages are learned from birth or later in life? This project compares simultaneous bilinguals, sequential bilinguals and monolinguals on measures of executive function such as inhibition, switching and working memory.</p>
+      <ul class="interests">
+        <li>Design and programming of online experiments (reaction-time tasks, tests and questionnaires) in Python</li>
+        <li>Participant recruitment and management of project resources</li>
+        <li>Data analysis with Python, R and SPSS</li>
+      </ul>
+
+      <h3>Educational Manager, Two Worlds One Me</h3>
+      <p class="small muted">Germany (hybrid) · Feb 2026 – present</p>
+      <p>I lead the design and management of an AI-powered trilingual (German, English and Farsi) learning app for children.</p>
+      <ul class="interests">
+        <li>Designing the pedagogical framework and digital learning content, grounded in cognitive science</li>
+        <li>Managing product development together with the founders and the engineering team</li>
+        <li>Overseeing curriculum strategy and educational quality across three languages</li>
+        <li>Exploring AI-driven personalisation for child language learning</li>
+      </ul>
     </section>
 
     <section id="publications">
@@ -148,7 +172,8 @@
     <section id="cv">
       <h2>CV</h2>
 
-      <h3>Academic positions</h3>
+      <h3>Positions</h3>
+      <div class="entry"><div class="when">2026 – present</div><div><strong>Educational Manager</strong><br><span class="muted">Two Worlds One Me, Germany (hybrid)</span></div></div>
       <div class="entry"><div class="when">2024 – present</div><div><strong>Postdoctoral Researcher, Lecturer &amp; Events Coordinator</strong><br><span class="muted">Neuro-Psycholinguistics Lab, Heinrich Heine University Düsseldorf</span></div></div>
       <div class="entry"><div class="when">2026 – present</div><div><strong>Business English Lecturer</strong><br><span class="muted">CBS International Business School, Cologne</span></div></div>
       <div class="entry"><div class="when">2017 – 2024</div><div><strong>Lecturer, then Assistant Professor of English (from 2023)</strong><br><span class="muted">Faculty of Medicine, Shahid Beheshti University of Medical Sciences, Tehran</span></div></div>
@@ -182,6 +207,24 @@
 </div>
 
 <footer>© 2026 Mohammad Nowbakht</footer>
+
+<script>
+  // Show one section at a time, based on the menu item clicked
+  function showSection() {
+    var sections = document.querySelectorAll('main > section');
+    var id = location.hash.slice(1);
+    if (!document.getElementById(id)) id = 'about';
+    sections.forEach(function (s) { s.hidden = (s.id !== id); });
+    document.body.classList.toggle('home', id === 'about');
+    document.querySelectorAll('nav a:not(.brand)').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', showSection);
+  showSection();
+  window.addEventListener('load', function () { setTimeout(function () { window.scrollTo(0, 0); }, 0); });
+</script>
 
 </body>
 </html>
